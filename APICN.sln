@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APICN", "APICN\APICN.csproj", "{1FC3E031-320B-4684-962A-1E00069A5D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APICNsockets", "APICNsockets\APICNsockets.csproj", "{EB3F03D6-92AC-4C41-A549-655B9C53A664}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FC3E031-320B-4684-962A-1E00069A5D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC3E031-320B-4684-962A-1E00069A5D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC3E031-320B-4684-962A-1E00069A5D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC3E031-320B-4684-962A-1E00069A5D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3F03D6-92AC-4C41-A549-655B9C53A664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3F03D6-92AC-4C41-A549-655B9C53A664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3F03D6-92AC-4C41-A549-655B9C53A664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3F03D6-92AC-4C41-A549-655B9C53A664}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B7EA93F-99A6-4135-9547-B3A1947D5580}
+	EndGlobalSection
+EndGlobal

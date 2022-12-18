@@ -1,0 +1,72 @@
+﻿@page "/"
+@using APICNsockets.Models
+@using Microsoft.AspNetCore.SignalR.Client
+
+
+<PageTitle>Index</PageTitle>
+
+
+Welcome to your new app.
+<div>
+    SignalR Status : @IsConnected
+    SignalR Updated On : @updatedOn
+</div>
+<h3>
+    Incoming Location
+</h3>
+@foreach(var str in strings){
+    <span>@str</span>
+}
+<br />
+<h3>
+    Incoming nguoidung
+</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TrangThai</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in users)
+        {
+            <tr>
+                <td>@emp.ID</td>
+                <td>@emp.TrangThai</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code{
+    private HubConnection? hubConnection;
+    public List<User> users;
+    public List<string> strings = new List<string>();
+    public string updatedOn;
+    protected override async Task OnInitializedAsync()
+    {
+        users = new List<User>();
+        hubConnection = new HubConnectionBuilder()
+        .WithUrl("https://localhost:44327/signalhub")
+        .Build();
+        hubConnection.On<User>("Receivenguoidung", (incomingnguoidung) =>
+        {
+            users.Add(incomingnguoidung);
+            updatedOn = DateTime.Now.ToLongTimeString();
+            InvokeAsync(StateHasChanged);
+
+        });
+        hubConnection.On<string>("ReceiveLocation", (incomingLocation) =>
+        {
+
+            strings.Add(incomingLocation);
+            updatedOn = DateTime.Now.ToLongTimeString();
+            InvokeAsync(StateHasChanged);
+           
+        });
+        await hubConnection.StartAsync();
+    }
+    public bool IsConnected =>
+    hubConnection?.State == HubConnectionState.Connected;
+}
